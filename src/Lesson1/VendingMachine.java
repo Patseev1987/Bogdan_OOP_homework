@@ -1,5 +1,6 @@
 package Lesson1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VendingMachine {
@@ -21,15 +22,30 @@ public class VendingMachine {
         return null;
     }
 
-    public Chocolate getChokolate(String brand, int cocoa) {
+    /**getChocolate()
+     * This method allows you to buy chocolate.
+     * @param name  String
+     * @param brand  String
+     * @param cocoa  Integer
+     * @return Chocolate or null
+     */
+
+    public Chocolate getChokolate(String name,String brand, int cocoa) {
+        if (cocoa>100 || cocoa<0) {
+            throw new RuntimeException("Wrong value for cocoa");
+        }
         for (Product product : products) {
             if (product instanceof Chocolate) {
                 Chocolate chocolate = ((Chocolate) product);
-                if (chocolate.brand.equalsIgnoreCase(brand) && chocolate.getCocoa() == cocoa) {
-                    return chocolate;
+                if (chocolate.name.equalsIgnoreCase(name) && chocolate.brand.equalsIgnoreCase(brand)
+                        && chocolate.getCocoa() == cocoa) {
+                    Chocolate result = chocolate;
+                    products.remove(products.indexOf(chocolate));
+                    return result;
                 }
             }
         }
         return null;
     }
+
 }
