@@ -45,12 +45,38 @@ public class Main {
         VendingMachine vendingMachine = new VendingMachine(products);
 
         BottleOfWater bottleOfWaterRes = vendingMachine.getBottleOfWater("Бутылка2", 1);
-        if (bottleOfWaterRes != null){
+        if (bottleOfWaterRes != null) {
             System.out.println("Вы купили: ");
             System.out.println(bottleOfWaterRes.displayInfo());
-        }
-        else {
+        } else {
             System.out.println("Такой бутылки с водой нет в автомате.");
+        }
+
+
+        //----------------------------------------------------------------------------------
+
+        Chocolate chocolate1 = new Chocolate("Mars", "Chocolate", 85.5, 35);
+        Chocolate chocolate2 = new Chocolate("Snickers", "Chocolate", 85.5, 35);
+        Chocolate chocolate3 = new Chocolate("Ritter SPORT", "Milk Chocolate", 135.25, 35);
+        Chocolate chocolate4 = new Chocolate("Ritter SPORT", "Dark Chocolate", 170.5, 55);
+        Chocolate chocolate5 = new Chocolate("Ritter SPORT", "Dark Chocolate", 210, 85);
+        Chocolate chocolate6 = new Chocolate("Ritter SPORT", "White Chocolate", 135.25, 0);
+        Chocolate chocolate7 = new Chocolate("Bounty", "Chocolate", 85.5, 35);
+        Chocolate chocolate8 = new Chocolate("Ritter SPORT", "Dark chocolate with cookies", 85.5, 55);
+        products.add(chocolate1);
+        products.add(chocolate2);
+        products.add(chocolate3);
+        products.add(chocolate4);
+        products.add(chocolate5);
+        products.add(chocolate6);
+        products.add(chocolate7);
+        products.add(chocolate8);
+        Chocolate chocolate = vendingMachine.getChokolate("Ritter SPORT", 55);
+        if (chocolate != null) {
+            System.out.println("Вы купили: ");
+            System.out.println(chocolate.displayInfo());
+        } else {
+            System.out.println("Такой шоколадки нет в автомате.");
         }
 
     }
