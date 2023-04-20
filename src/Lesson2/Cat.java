@@ -6,15 +6,30 @@ public class Cat {
     private boolean full;
 
     public Cat(String name, int appetite) {
-        this.name = name;
-        this.appetite = appetite;
+        if (name.isEmpty()) {
+            throw new RuntimeException("Cat must have name!");
+        } else {
+            this.name = name;
+        }
+        if (appetite > 9) {
+            this.appetite = appetite;
+        } else {
+            throw new RuntimeException("Appetite must be more 9!");
+        }
         this.full = false;
     }
 
-    public boolean isFull() {
-        return full;
+    public Cat(String name) {
+        this(name, 15);
     }
 
+    public Cat() {
+        this("Bob",15);
+    }
+
+    public boolean getFull() {
+        return full;
+    }
 
     public String getName() {
         return name;
@@ -42,11 +57,12 @@ public class Cat {
             System.out.println(name + " is not hungry!");
 
         } else {
-            System.out.println(name+" can't eat because not enough food on the plate!");
+            System.out.println(name + " can't eat because not enough food on the plate!");
         }
     }
-    public String getInfo(){
-        if(full) return name+" is full!";
+
+    public String getInfo() {
+        if (full) return name + " is full!";
         else return name + " is hungry!";
     }
 }

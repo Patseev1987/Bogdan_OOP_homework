@@ -7,16 +7,19 @@ public class Main {
                 new Cat("Bagira", 25),
                 new Cat("Sherhan", 30),
                 new Cat("Kot", 15),
-                new Cat("Abormot", 25)
+                new Cat("Abormot", 25),
+                new Cat()
         };
         Plate plate = new Plate(100);
         plate.info();
-        for (Cat cat : cats) {
-            System.out.println(cat.getInfo());
-            cat.eat(plate);
-            plate.info();
-            System.out.println(cat.getInfo());
+        Owner owner = new Owner("Margo", 33);
+        while (!owner.checkCats(cats)){
+            for (Cat cat:cats) {
+                cat.eat(plate);
+                plate.info();
+            }
+                owner.makeFood(plate,owner.checkCats(cats));
         }
-
+        System.out.println("All cats are full!");
     }
 }
