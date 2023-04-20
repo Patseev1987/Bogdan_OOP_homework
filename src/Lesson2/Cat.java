@@ -58,6 +58,7 @@ public class Cat {
 
         } else {
             System.out.println(name + " can't eat because not enough food on the plate!");
+            System.out.println(name+": May May May!");
         }
     }
 
