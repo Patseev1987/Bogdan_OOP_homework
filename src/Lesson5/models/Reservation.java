@@ -30,6 +30,8 @@ public class Reservation {
         this.date = date;
         this.name = name;
     }
-
-
+    @Override
+    public String toString() {
+        return String.format("Бронирование #%d, дата: %s, бронирование на имя: %s",id,date, name);
+    }
 }

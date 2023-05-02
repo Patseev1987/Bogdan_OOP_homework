@@ -24,8 +24,17 @@ public class Main {
 
 
         view.reservationTable(new Date(), 2, "Станислав");
-
+        view.reservationTable(new Date(), 1, "Анна");
+        view.reservationTable(new Date(), 2, "Богдан");
+        view.reservationTable(new Date(), 4, "Виктор");
+        view.reservationTable(new Date(), 3, "Мария");
+        view.reservationTable(new Date(), 5, "J");
+        bookingPresenter.updateViewNew();
         view.changeReservationTable(1001, new Date(), 3, "Станислав");
+        view.changeReservationTable(1006, new Date(),1,"J");
+        bookingPresenter.updateViewNew();
+
+
 
     }
 

@@ -14,10 +14,11 @@ public class TableModel implements Model {
 
     /**
      * Получение списка всех столиков
+     *
      * @return столики
      */
-    public Collection<Table> loadTables(){
-        if (tables == null){
+    public Collection<Table> loadTables() {
+        if (tables == null) {
             tables = new ArrayList<>();
 
             tables.add(new Table());
@@ -32,14 +33,15 @@ public class TableModel implements Model {
 
     /**
      * Бронирование столика
+     *
      * @param reservationDate Дата бронирования
-     * @param tableNo номер столика
-     * @param name имя клиента
+     * @param tableNo         номер столика
+     * @param name            имя клиента
      * @return номер брони
      */
-    public int reservationTable(Date reservationDate, int tableNo, String name){
-        for (Table table : tables){
-            if (table.getNo() == tableNo){
+    public int reservationTable(Date reservationDate, int tableNo, String name) {
+        for (Table table : tables) {
+            if (table.getNo() == tableNo) {
                 Reservation reservation = new Reservation(reservationDate, name);
                 table.getReservations().add(reservation);
                 return reservation.getId();
@@ -50,9 +52,30 @@ public class TableModel implements Model {
     }
 
 
-
     //TODO: Разработать самостоятельно в рамках домашней работы
-    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
+
+    /**
+     * Изменяет номер брони, если броньсуществует
+     *
+     * @param oldReservation  старый номер брони, которую надо изменить
+     * @param reservationDate дата ноого бронирования
+     * @param tableNo         номер нового столика
+     * @param name            имя
+     * @return номер новой брони
+     */
+    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
+
+        for (Table table : tables) {
+            Collection<Reservation> temp = table.getReservations();
+            if (!tables.isEmpty()) {
+                for (Reservation reservation : temp) {
+                    if (reservation.getId() == oldReservation) {
+                        table.getReservations().remove(reservation);
+                        return reservationTable(reservationDate, tableNo, name);
+                    }
+                }
+            }
+        }
         return -1;
     }
 
