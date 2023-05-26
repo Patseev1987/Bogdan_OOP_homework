@@ -35,7 +35,10 @@ public class JobAgency implements Publisher {
     @Override
     public void sendNewOffer(Vacancy vacancy) {
         for (Observer observer : observers) {
-            if (observer.getVacancyType().equals(vacancy.getType().getVacancyType())) {
+            if (observer.getVacancyType().equalsIgnoreCase(VacancyType.STUDENT.getVacancyType())) {
+                observer.receiveOfferBogdan(vacancy);
+
+        }else if (observer.getVacancyType().equals(vacancy.getType().getVacancyType())) {
                 observer.receiveOfferBogdan(vacancy);
             }
         }

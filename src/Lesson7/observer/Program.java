@@ -20,11 +20,18 @@ public class Program {
         Master petrov = new Master("Petrov");
         Student sidorov = new Student("Sidorov");
         Developer raj = new Developer("Raj");
+        Master malkov = new Master("Malkov");
+        Student udin = new Student("Udin");
+        Developer frolov = new Developer("Frolov");
+
 
    //     jobAgency.registerObserver(ivanov);
         jobAgency.registerObserver(petrov);
         jobAgency.registerObserver(sidorov);
         jobAgency.registerObserver(raj);
+        jobAgency.registerObserver(malkov);
+        jobAgency.registerObserver(udin);
+        jobAgency.registerObserver(frolov);
 
 //        for(int i = 0; i < 10; i++){
 //            geekBrains.needEmployee();
